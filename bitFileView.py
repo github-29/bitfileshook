@@ -12,6 +12,7 @@ def bit_data_read():
     if request.method == "GET":
             username = request.headers["username"]
             password = request.headers["password"]
+            repo = request.headers["repository"]
             response = requests.get(f"https://api.bitbucket.org/2.0/repositories/sushil29/bitfilesrepo/src/master/README.md",
                                        auth=(username, password))
 
