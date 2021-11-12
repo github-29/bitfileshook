@@ -12,7 +12,6 @@ def bit_data_read():
     if request.method == "GET":
             username = request.headers["username"]
             password = request.headers["password"]
-            # branch = request.form["branch"]
             response = requests.get(f"https://api.bitbucket.org/2.0/repositories/sushil29/bitfilesrepo/src/master/README.md",
                                        auth=(username, password))
 
@@ -22,8 +21,6 @@ def bit_data_read():
                 return Response(json.dumps({"error": "Invalid API"}), response.status_code)
             else:
                 return response.text
-            # else:
-            #     return Response(json.dumps({"error": "Invalid commit number"}), 404)
 
 
 if __name__ == '__main__':
